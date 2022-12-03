@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { get_comments } from "../../Redux/Action/CommentAction";
 
 import CommentCard from "./CommentCard";
-const CommentList = ({ el }) => {
+const CommentList = ({ el },{role}) => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(get_comments());
@@ -21,7 +21,7 @@ const CommentList = ({ el }) => {
       {comment?.map((comments) =>
         el._id == (comments.articleId && comments.articleId._id) ? (
           <div key={comments._id}>
-            <CommentCard comments={comments} />
+            <CommentCard comments={comments} role={role} />
           </div>
         ) : null
       )}

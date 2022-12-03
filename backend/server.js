@@ -8,7 +8,7 @@ app.use(express.json())
 require("dotenv").config();
 
 connectDB()
-const port = 7000
+const port = 4000
 app.use("/api/users", userRoutes);
 app.use("/api/articles",articleRoute);
 app.use("/api/comments",commentRoutes);

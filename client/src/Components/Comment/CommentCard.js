@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import Button from "react-bootstrap/Button";
-import { useDispatch } from "react-redux";
+import { useDispatch ,useSelector} from "react-redux";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import { del_comment, edit_comment } from "../../Redux/Action/CommentAction";
 
-const UsersCard = ({ comments }) => {
+const UsersCard = ({ comments },{role}) => {
   console.log("coment", comments);
   const [show, setShow] = useState(false);
 
@@ -16,7 +16,9 @@ const UsersCard = ({ comments }) => {
   const dispatch = useDispatch();
   const [date, setDate] = useState(comments.date);
   const [body, setBody] = useState(comments.body);
+  const user = useSelector((state) => state.authReducer.user);
 
+console.log("comment card"+ user?.role)
   const handleEdit = (e) => {
     e.preventDefault();
     dispatch(edit_comment(comments._id, { date, body }), handleClose());
@@ -31,9 +33,9 @@ const UsersCard = ({ comments }) => {
         }}
       >
         <ListGroup variant="flush">
-          <ListGroup.Item>{comments.date}</ListGroup.Item>
+          <ListGroup.Item>{comments.date} </ListGroup.Item>
           <ListGroup.Item> {comments.body}</ListGroup.Item>
-
+{user?.role!=="Baladia"&&(
           <ListGroup.Item
             style={{ display: "flex", justifyContent: "space-between" }}
           >
@@ -83,7 +85,7 @@ const UsersCard = ({ comments }) => {
                 </Button>
               </Modal.Footer>
             </Modal>
-          </ListGroup.Item>
+          </ListGroup.Item>)}
         </ListGroup>
       </Card>
     </div>

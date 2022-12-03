@@ -3,10 +3,10 @@ import Form from "react-bootstrap/Form";
 import { useDispatch } from "react-redux";
 
 
-import { add_article, get_articles } from "../Redux/Action/articleAction";
+import { add_article } from "../Redux/Action/articleAction";
 import {  Link, useNavigate } from "react-router-dom";
 import { useRef } from "react";
-import axios from "axios";
+import  {useSelector} from "react-redux"
 import { FaAngellist } from "react-icons/fa";
 const Add = () => {
     const dispatch = useDispatch();
@@ -22,6 +22,8 @@ const Add = () => {
     const [role, setRole] = useState("");
     const inputRef=useRef()
     const [file,setFile]=useState (null)
+    const user = useSelector((state) => state.authReducer.user);
+
     // const editAddArticle=async(e)=>{
     // const config={
     //   headers:{
@@ -37,12 +39,15 @@ const Add = () => {
     //     }}
     const handleSubmit = (e) => {
       e.preventDefault();
+      const added=user?.role
       dispatch(
-        add_article({ title, location, description, price,image,role }),
-        
-        navigate("/articles")
+        add_article({ title, location, description, price,image,role ,added}),
+       (role==="article"||role==="traitement"||role==="accessoire"||role==="nourriture")?
+        navigate("/articles"):
+        navigate("/accouplement")
       );
     };
+    console.log(role)
   return (
     <div  style={{
         margin: " 4rem auto ",
@@ -114,6 +119,13 @@ const Add = () => {
               <option>choose your role</option>
               <option>article</option>
               <option>accouplement</option>
+              <option>dressage</option>
+              <option>traitement</option>
+              <option>nourriture</option>
+              <option>accessoire</option>
+
+              <option>vaccination</option>
+              <option>achat</option>
              
             </Form.Select>
       

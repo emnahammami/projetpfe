@@ -5,7 +5,6 @@ import { useDispatch } from "react-redux";
 
 import Form from "react-bootstrap/Form";
 
-import { useNavigate } from "react-router-dom";
 import { add_comment } from "../../Redux/Action/CommentAction";
 import { FaRegCommentDots } from "react-icons/fa";
 
@@ -13,7 +12,6 @@ const AddComment = ({ id }) => {
   const dispatch = useDispatch();
 
   const [show, setShow] = useState(false);
-  const navigate = useNavigate();
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [date, setDate] = useState("");
@@ -29,6 +27,7 @@ const AddComment = ({ id }) => {
       <Button variant="primary" onClick={handleShow}>
         <FaRegCommentDots />
       </Button>
+      
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>

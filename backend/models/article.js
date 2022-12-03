@@ -5,9 +5,10 @@ const articleSchema = new mongoose.Schema({
   description: String,
   price: Number,
   image :String,
+  added:String,
   role: {
     type: String,
-    enum: ["article", "accouplement"],
+    enum: ["article", "accouplement","accessoire","vaccination","dressage","nourriture","traitement","achat"],
     default: "article",
   },
 

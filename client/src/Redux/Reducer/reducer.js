@@ -6,7 +6,7 @@ const initialState = {
 const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case GET_USERS:
-      return { ...state, users: payload.users };
+      return { ...state, users: payload.userss };
     default:
       return state;
   }

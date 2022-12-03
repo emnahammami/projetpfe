@@ -5,7 +5,7 @@ import {
   GET_USERS,
   LOGIN,
   LOGOUT,
-  REGISTER,
+  REGISTER,DELETE_USERS
 } from "../Types/authTypes";
 import { alert_error } from "./errorActions";
 
@@ -18,6 +18,17 @@ export const register = (data) => async (dispatch) => {
       dispatch(alert_error(el.msg));
     });
     dispatch({ type: FAIL, payload: error.response.data });
+  }
+};
+export const deleteusers = (id) => async (dispatch,navigate) => {
+  try {
+    const res = await axios.delete(`/users/del/${id}`);
+    console.log(res.data);
+    dispatch({ type: DELETE_USERS, payload: res.data });
+    navigate("/profile");
+    window.location.reload();
+  } catch (error) {
+    console.log(error);
   }
 };
 export const login = (data, navigate) => async (dispatch) => {
@@ -48,6 +59,7 @@ export const get_current = () => async (dispatch) => {
     console.log(error);
   }
 };
+
 export const getusers = () => async (dispatch) => {
   try {
     const res = await axios.get("/users/all");
@@ -56,7 +68,7 @@ export const getusers = () => async (dispatch) => {
   } catch (error) {
     console.log(error);
   }
-};
+}
 export const logout = () => {
   return { type: LOGOUT };
 };

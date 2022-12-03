@@ -112,7 +112,7 @@ const AddArticle = () => {
             <Form.Select onChange={(e) => setRole(e.target.value)} value={role}>
               <option>choose your role</option>
               <option>article</option>
-              <option>accouplement</option>
+              <option>dressage</option>
              
             </Form.Select>
             <div>

@@ -3,7 +3,7 @@ import axios from "axios";
 export const getusers = () => async (dispatch) => {
   try {
     const res = await axios.get("/users/all");
-    console.log(res.data);
+   
     dispatch({ type: GET_USERS, payload: res.data });
   } catch (error) {
     console.log(error);

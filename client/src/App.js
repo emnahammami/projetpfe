@@ -18,6 +18,7 @@ import AccouplementList from "./Components/Accouplement/AccouplementList";
 import Add from "./Components/Add";
 import LandingPage from "./Components/LandingPage";
 import Profile from "./Components/Profile";
+import Admin from "./Components/Admin/Admin";
 
 function App() {
 const dispatch=useDispatch()
@@ -34,6 +35,7 @@ useEffect(()=>{
         <Route path="/" element={<LandingPage />} />
           <Route path="/home" element={<Home />} />
           <Route path="/Profile" element={<Profile />} />
+          <Route path="/Admin" element={<Admin />} />
           <Route path="/addarticle" element={<Add />} />
           <Route path="/articles" element={<Articlelist />} />
           <Route path="/login" element={<Login />} />

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 
 import {
@@ -17,15 +18,69 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { logout } from "../Redux/Action/authAction";
 
 const Sidebar = ({ children }) => {
-  const token = localStorage.getItem("token");
+
   const user = useSelector((state) => state.authReducer.user);
-  console.log(user);
+
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  let newmenuItem = [];
+
   const menuItem = [
+    [
+      {
+        path: "/home",
+        name: "home",
+        icon: <FaHome />,
+      },
+      {
+        path: "/Profile",
+        name: "profile",
+        icon: <FaUserAlt />,
+      },
+      {
+        path: "/accouplement",
+        name: "accouplement",
+        icon: <FaDog />,
+      },
+      {
+        path: "/addarticle",
+        name: "Add New articles",
+        icon: <FaBarcode />,
+      },
+
+      {
+        path: "/",
+        name: "Logout",
+        icon: (
+          <FaAngleDoubleLeft
+            onClick={() => {
+              dispatch(logout());
+              navigate("/");
+            }}
+          />
+        ),
+      },
+    ],
+    [
+      {
+        path: "/home",
+        name: "home",
+        icon: <FaHome />,
+      },
+      {
+        path: "/login",
+        name: "login",
+        icon: <FaGlobe />,
+      },
+      {
+        path: "/register",
+        name: "register",
+        icon: <FaMoneyCheck />,
+      },
+    ],
+  ];
+  const menuItem1 = [
     [
       {
         path: "/home",
@@ -54,13 +109,13 @@ const Sidebar = ({ children }) => {
       },
 
       {
-        path: "/home",
+        path: "/",
         name: "Logout",
         icon: (
           <FaAngleDoubleLeft
             onClick={() => {
               dispatch(logout());
-              navigate("/home");
+              navigate("/");
             }}
           />
         ),
@@ -84,6 +139,10 @@ const Sidebar = ({ children }) => {
       },
     ],
   ];
+
+ //let mi=menuItem.filter(item=>item.name!=="Product")  
+
+
   return (
     <div className="container">
       <div style={{ width: isOpen ? "250px" : "50px" }} className="sidebar">
@@ -92,8 +151,9 @@ const Sidebar = ({ children }) => {
             <FaBars onClick={toggle} />
           </div>
         </div>
-        {user
-          ? menuItem
+        {user&&(user?.role==="Baladia")&&
+          
+        menuItem
               .find((el, i) => !(i % 2))
               .map((item, index) => (
                 <NavLink
@@ -110,8 +170,28 @@ const Sidebar = ({ children }) => {
                     {item.name}
                   </div>
                 </NavLink>
-              ))
-          : menuItem
+              ))}
+  {user&&((user?.role==="vet")||(user.role==="admin")||(user.role==="user"))&&
+          
+          menuItem1
+                .find((el, i) => !(i % 2))
+                .map((item, index) => (
+                  <NavLink
+                    to={item.path}
+                    key={index}
+                    className="link"
+                    activeclassname="active"
+                  >
+                    <div className="icon">{item.icon}</div>
+                    <div
+                      style={{ display: isOpen ? "block" : "none" }}
+                      className="link_text"
+                    >
+                      {item.name}
+                    </div>
+                  </NavLink>
+                ))}          
+          {!user&&menuItem1
               .find((el, i) => i % 2)
               .map((item, index) => (
                 <NavLink

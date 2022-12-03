@@ -111,6 +111,7 @@ const Register = () => {
                   <option>user</option>
                   <option>Baladia</option>
                   <option>vet</option>
+               
                 </Form.Select>
 
                 <Button

@@ -8,6 +8,21 @@
 
   
 }
+
+
+
+
+
+
+.searchinput{
+	width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
 body{
 	background-image: url("https://img.freepik.com/free-vector/frame-with-dogs-vector-white-background_53876-127700.jpg?w=2000");
 	background-size: cover;
@@ -328,6 +343,16 @@ body{
 	border-radius: 10px;
   }
   
+  .customselect {
+	background: linear-gradient(145deg, #9a40a9, #b74cc9);
+	background-color:linear-gradient(145deg, #9a40a9, #b74cc9);
+	font-weight: bold !important;
+
+
+  text-transform: uppercase;
+
+  }
+ 
   @keyframes glowing-button-85 {
 	0% {
 	  background-position: 0 0;
@@ -516,6 +541,10 @@ box-shadow:  28px 28px 57px #933da2,
              -28px -28px 57px #c351d6;
 	
 }
+.cart{
+	align-self: flex-end;
+
+}
 .card_profile{
 	margin: 50px 20% 10px 35%;
 	color:#fff;
@@ -526,4 +555,11 @@ box-shadow:  28px 28px 57px #933da2,
               box-shadow:  20px 20px 60px #913ca0, 
              -20px -20px 60px #c552d8;
              border: none
+}
+.container{
+	display: flex;
+	flex-direction: row;
+
+	
+	
 }

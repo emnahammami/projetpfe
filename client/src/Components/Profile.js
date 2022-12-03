@@ -4,7 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { useState } from "react";
 import { useRef } from "react";
-import { get_current } from "../Redux/Action/authAction";
+import { get_current ,deleteusers} from "../Redux/Action/authAction";
+import {  useNavigate } from "react-router-dom";
+
 import {
   FaFacebookF,
   FaFacebookMessenger,
@@ -12,8 +14,10 @@ import {
   FaTwitter,
 } from "react-icons/fa";
 import { FaRegEnvelopeOpen } from "react-icons/fa";
+import Admin from "./Admin/Admin";
 
-const Profile = () => {
+
+const Profile = () => { const navigate = useNavigate();
   const user = useSelector((state) => state.authReducer.user);
   const dispatch = useDispatch();
   const inputRef = useRef();
@@ -34,7 +38,9 @@ const Profile = () => {
     }
   };
   return (
-    <div className="container d-flex justify-content-center">
+ <div style={{padding:"0px",display:"flex",flexDirection:"column"}}>
+    <div className="container d-flex justify-content-center" style={{margin:"0px"}}>
+      
       <div className="card_profile p-3 py-4">
         <div className="text-center">
           <img
@@ -46,6 +52,7 @@ const Profile = () => {
             width={100}
             className="rounded-circle"
           />
+          
           <h3 className="mt-2">{user?.name}</h3>
           <span className="mt-1 clearfix">{user?.email}</span>
           <span className="mt-1 clearfix">{user?.role}</span>
@@ -63,6 +70,14 @@ const Profile = () => {
             <span className="num">10</span>
           </div>
         </div> */}
+       
+        
+         <Button
+                variant="danger"
+                onClick={() => dispatch(deleteusers(user._id),navigate("/"),console.log("clicked"))}
+              >
+                DELETE
+              </Button>
           <hr className="line" />
 
           <div className="social-buttons mt-5">
@@ -90,6 +105,7 @@ const Profile = () => {
             >
               upload image
             </button>
+            
             <input
               type="file"
               ref={inputRef}
@@ -98,8 +114,10 @@ const Profile = () => {
             />
           </div>
         </div>
+        
       </div>
-    </div>
+
+    </div>      {user?.role==="admin"&&(<Admin/>)}</div>
   );
 };
 

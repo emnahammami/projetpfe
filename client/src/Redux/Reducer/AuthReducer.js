@@ -3,7 +3,7 @@ import {
   GET_USERS,
   LOGIN,
   LOGOUT,
-  REGISTER,
+  REGISTER,DELETE_USERS
 } from "../Types/authTypes";
 
 const initialState = {
@@ -14,6 +14,8 @@ const initialState = {
 
 const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
+    case GET_USERS:
+      return { ...state, users: payload};
     case REGISTER:
       localStorage.setItem("token", payload.token);
 
@@ -23,12 +25,14 @@ const reducer = (state = initialState, { type, payload }) => {
       return { ...state, user: payload.user };
     case GET_CURRENT:
       return { ...state, user: payload };
-    case GET_USERS:
-      return { ...state, users: payload.userss };
+     
+     
     case LOGOUT:
       localStorage.removeItem("token");
       return { ...state, user: null };
-
+      case DELETE_USERS:
+      return { loading: true };
+     
     default:
       return state;
   }
