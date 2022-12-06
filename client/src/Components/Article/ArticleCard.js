@@ -432,9 +432,7 @@ else if(cond1){
             <FaTrashAlt />
           </Button>
 
-          <Button variant="warning" onClick={handleShow}>
-            <FaRegEdit />
-          </Button>
+         
           <AddComment id={el._id} />
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>

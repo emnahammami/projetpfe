@@ -117,16 +117,16 @@ const Add = () => {
         <Form.Label>Role</Form.Label>
             <Form.Select onChange={(e) => setRole(e.target.value)} value={role}>
               <option>choose your role</option>
-              <option>article</option>
+              {!user?.role==="Baladia" && (   <option>article</option>)}            
+           <option>dressage</option>
               <option>accouplement</option>
-              <option>dressage</option>
-              <option>traitement</option>
-              <option>nourriture</option>
-              <option>accessoire</option>
-
               <option>vaccination</option>
-              <option>achat</option>
+              {!user?.role==="Baladia" && (   <option>traitement</option>)}
+              {!user?.role==="Baladia" && (   <option>nourriture</option>)}
+              {!user?.role==="Baladia" && (   <option>accessoire</option>)}
+
              
+              <option>achat</option>            
             </Form.Select>
       
       </header>

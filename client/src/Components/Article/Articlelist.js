@@ -38,8 +38,7 @@ const Articlelist = () => {
 
     <div> 
       
-      <select onChange={handleSelectChange} name="ids" id="ids" className="customselect"           value={searchInput}
->
+      <select onChange={handleSelectChange} name="ids" id="ids" className="customselect" value={searchInput}>
      
       <option>article</option>
              

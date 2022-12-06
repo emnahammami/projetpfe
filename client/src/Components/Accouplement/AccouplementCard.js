@@ -32,6 +32,7 @@ const AccouplementCard = ({el,added}) => {
   const [image, setImage] = useState("");
   const ok1=added==="user"
 const ok2=added==="vet"
+const ok3=added==="Baladia"
   const handleEdit = (e) => {
     e.preventDefault();
     dispatch(
@@ -84,7 +85,17 @@ const ok2=added==="vet"
               <ListGroup.Item
                 style={{ display: "flex",justifyContent:"space-around",height:"50px",alignItems:"center"}}
               >
-               
+       {ok3===cond3&&( <Button
+                  variant="danger"
+                  onClick={() => dispatch(del_article(el._id))}
+                >
+                  <FaTrashAlt/>
+                </Button>
+                )}
+                
+                {ok3===cond3&&(<Button variant="warning" onClick={handleShow}>
+                  <FaRegEdit/>
+                </Button>)}         
                 <AddComment id={el._id} />
              
               </ListGroup.Item>
@@ -387,9 +398,7 @@ variant="top"
               <FaTrashAlt/>
             </Button>
             
-            <Button variant="warning" onClick={handleShow}>
-              <FaRegEdit/>
-            </Button>
+           
             <AddComment id={el._id} />
             <Modal show={show} onHide={handleClose}>
               <Modal.Header closeButton>
