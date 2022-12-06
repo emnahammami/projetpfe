@@ -38,7 +38,7 @@ const Articlelist = () => {
 
     <div> 
       
-      <select onChange={handleSelectChange} name="ids" id="ids" className="customselect" value={searchInput}>
+      <select onChange={handleSelectChange} name="ids" id="ids" className="customselect" value={searchInput} style={{marginLeft:"auto",display:"block"}}>
      
       <option>article</option>
              
@@ -49,7 +49,7 @@ const Articlelist = () => {
 
               <option value="nourriture">nourriture</option>
       </select>
-         <input type="search"  className="searchinput" placeholder="search here by title" onChange={handleChange} value={searchInput} style={{textAlign:"center"}}/>
+         <input type="search"  className="searchinput" placeholder="search here by title" onChange={handleChange} value={searchInput} style={{marginLeft:"auto",marginRight:"auto",display:"block"}}/>
     
         <div
           style={{
@@ -70,7 +70,7 @@ const Articlelist = () => {
       <div>  
         
           
-      <select onChange={handleSelectChange} name="ids" id="ids" className="customselect">
+      <select onChange={handleSelectChange} name="ids" id="ids" className="customselect" style={{marginLeft:"auto",marginRight:"auto",display:"block"}}>
       <option>article</option>
       <option value="traitement">traitement</option>
               
@@ -79,7 +79,7 @@ const Articlelist = () => {
               <option value="nourriture">nourriture</option>
       </select>
         
-          <input type="search"  className="searchinput" placeholder="search here by title" onChange={handleChange} value={searchInput} style={{textAlign:"center"}}/>
+          <input type="search"  className="searchinput" placeholder="search here by title" onChange={handleChange} value={searchInput} style={{marginLeft:"auto",marginRight:"auto",display:"block"}}/>
       
           <div
             style={{

@@ -36,7 +36,7 @@ const AccouplementList = () => {
   if(searchInput===""){  return (
 <div>   
   
-<select onChange={handleSelectChange} name="ids" id="ids" className="customselect">
+<select onChange={handleSelectChange} name="ids" id="ids" className="customselect" style={{marginLeft:"auto",marginRight:"auto",display:"block"}} >
 <option>accouplement</option>
       <option>dressage</option>
      
@@ -45,7 +45,7 @@ const AccouplementList = () => {
 
               <option value="achat">achat</option>
       </select>
-   <input type="search"  className="searchinput" placeholder="search here by title" onChange={handleChange} value={searchInput}/>
+   <input type="search"  className="searchinput" placeholder="search here by title" onChange={handleChange} value={searchInput} style={{marginLeft:"auto",marginRight:"auto",display:"block"}}/>
 
     <div
       style={{
@@ -64,7 +64,7 @@ const AccouplementList = () => {
 }
 else{ return (
   <div>  
-    <select onChange={handleSelectChange} name="ids" id="ids" className="customselect">
+    <select onChange={handleSelectChange} name="ids" id="ids" className="customselect" style={{marginLeft:"auto",marginRight:"auto",display:"block"}} >
       <option>article</option>
       <option vlaue="dressage">dressage</option>
               
@@ -73,7 +73,7 @@ else{ return (
               <option value="achat">achat</option>
       </select>
     
-      <input type="search"  className="searchinput" placeholder="search here by title" onChange={handleChange} value={searchInput}/>
+      <input type="search"  className="searchinput" placeholder="search here by title" onChange={handleChange} value={searchInput} style={{marginLeft:"auto",marginRight:"auto",display:"block"}}/>
   
       <div
         style={{
