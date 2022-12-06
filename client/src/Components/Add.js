@@ -23,7 +23,7 @@ const Add = () => {
     const inputRef=useRef()
     const [file,setFile]=useState (null)
     const user = useSelector((state) => state.authReducer.user);
-
+  const validation=  user?.role==="Baladia"
     // const editAddArticle=async(e)=>{
     // const config={
     //   headers:{
@@ -117,13 +117,13 @@ const Add = () => {
         <Form.Label>Role</Form.Label>
             <Form.Select onChange={(e) => setRole(e.target.value)} value={role}>
               <option>choose your role</option>
-              {!user?.role==="Baladia" && (   <option>article</option>)}            
+              {!validation && (   <option>article</option>)}            
            <option>dressage</option>
               <option>accouplement</option>
               <option>vaccination</option>
-              {!user?.role==="Baladia" && (   <option>traitement</option>)}
-              {!user?.role==="Baladia" && (   <option>nourriture</option>)}
-              {!user?.role==="Baladia" && (   <option>accessoire</option>)}
+              {!validation && (   <option>traitement</option>)}
+              {!validation && (   <option>nourriture</option>)}
+              {!validation && (   <option>accessoire</option>)}
 
              
               <option>achat</option>            
