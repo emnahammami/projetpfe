@@ -37,8 +37,8 @@ const Articlelist = () => {
   if(!searchInput){  return (
 
     <div> 
-      
-      <select onChange={handleSelectChange} name="ids" id="ids" className="customselect" value={searchInput} style={{marginLeft:"auto",display:"block"}}>
+      <div style={{display:"flex" ,justifyContent:"center",justifyItems:"center"}}>
+      <select onChange={handleSelectChange} name="ids" id="ids" className="customselect" >
      
       <option>article</option>
              
@@ -49,8 +49,8 @@ const Articlelist = () => {
 
               <option value="nourriture">nourriture</option>
       </select>
-         <input type="search"  className="searchinput" placeholder="search here by title" onChange={handleChange} value={searchInput} style={{marginLeft:"auto",marginRight:"auto",display:"block"}}/>
-    
+         <input type="search"  className="searchinput" placeholder="search here by title" onChange={handleChange} value={searchInput} />
+         </div>
         <div
           style={{
             display: "flex",
@@ -67,20 +67,22 @@ const Articlelist = () => {
       )
     }
     else{ return (
-      <div>  
-        
-          
-      <select onChange={handleSelectChange} name="ids" id="ids" className="customselect" style={{marginLeft:"auto",marginRight:"auto",display:"block"}}>
-      <option>article</option>
-      <option value="traitement">traitement</option>
-              
-              <option value="accessoire">accessoire</option>
 
-              <option value="nourriture">nourriture</option>
-      </select>
-        
-          <input type="search"  className="searchinput" placeholder="search here by title" onChange={handleChange} value={searchInput} style={{marginLeft:"auto",marginRight:"auto",display:"block"}}/>
-      
+      <div> 
+        <div style={{display:"flex" ,justifyContent:"center",justifyItems:"center"}}>
+        <select onChange={handleSelectChange} name="ids" id="ids" className="customselect" >
+       
+        <option>article</option>
+               
+               
+                <option vlaue="traitement">traitement</option>
+                
+                <option value="accessoire">accessoire</option>
+  
+                <option value="nourriture">nourriture</option>
+        </select>
+           <input type="search"  className="searchinput" placeholder="search here by title" onChange={handleChange} value={searchInput} />
+           </div>
           <div
             style={{
               display: "flex",
@@ -95,7 +97,6 @@ const Articlelist = () => {
             ))}  
           </div></div>
         )
-    
     }
 }
 export default Articlelist;

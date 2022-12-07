@@ -34,47 +34,20 @@ const AccouplementList = () => {
 })
   /*let filtredarticles=articles.filter(item=>item.title===searchInput||item.description===searchInput)*/
   if(searchInput===""){  return (
-<div>   
+    <div> 
+    <div style={{display:"flex" ,justifyContent:"center",justifyItems:"center"}}>
+    <select onChange={handleSelectChange} name="ids" id="ids" className="customselect" >
+   
+    <option>accouplement</option>
+        <option>dressage</option>
+       
+        <option value="vaccination">vaccination</option>
+               
   
-<select onChange={handleSelectChange} name="ids" id="ids" className="customselect" style={{marginLeft:"auto",marginRight:"auto",display:"block"}} >
-<option>accouplement</option>
-      <option>dressage</option>
-     
-      <option value="vaccination">vaccination</option>
-              <option value="accouplement">accouplement</option>
-
-              <option value="achat">achat</option>
-      </select>
-   <input type="search"  className="searchinput" placeholder="search here by title" onChange={handleChange} value={searchInput} style={{marginLeft:"auto",marginRight:"auto",display:"block"}}/>
-
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "space-around",
-        flexWrap: "wrap",
-      }}
-    >
-      {articles.map((el) => el.role===String(selectedId) && (
-        <div key={el._id}>
-          <AccouplementCard el={el}  added={el.added}/>
-        </div>
-      ))}  
-    </div></div>
-  )
-}
-else{ return (
-  <div>  
-    <select onChange={handleSelectChange} name="ids" id="ids" className="customselect" style={{marginLeft:"auto",marginRight:"auto",display:"block"}} >
-      <option>article</option>
-      <option vlaue="dressage">dressage</option>
-              
-              <option value="vaccination">vaccination</option>
-
-              <option value="achat">achat</option>
-      </select>
-    
-      <input type="search"  className="searchinput" placeholder="search here by title" onChange={handleChange} value={searchInput} style={{marginLeft:"auto",marginRight:"auto",display:"block"}}/>
-  
+                <option value="achat">achat</option>
+    </select>
+       <input type="search"  className="searchinput" placeholder="search here by title" onChange={handleChange} value={searchInput} />
+       </div>
       <div
         style={{
           display: "flex",
@@ -82,12 +55,44 @@ else{ return (
           flexWrap: "wrap",
         }}
       >
-        {filtredarticles.map((el) => el.role===String(selectedId) && (
+        {articles.map((el) => el.role===String(selectedId) && (
           <div key={el._id}>
-            <AccouplementCard el={el}  added={el.added}/>
+            <AccouplementCard el={el} added={el.added} />
           </div>
         ))}  
       </div></div>
+  )
+}
+else{ return (
+ 
+
+  <div> 
+  <div style={{display:"flex" ,justifyContent:"center",justifyItems:"center"}}>
+  <select onChange={handleSelectChange} name="ids" id="ids" className="customselect" >
+ 
+  <option>accouplement</option>
+      <option>dressage</option>
+     
+      <option value="vaccination">vaccination</option>
+             
+
+              <option value="achat">achat</option>
+  </select>
+     <input type="search"  className="searchinput" placeholder="search here by title" onChange={handleChange} value={searchInput} />
+     </div>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "space-around",
+        flexWrap: "wrap",
+      }}
+    >
+      {filtredarticles.map((el) => el.role===String(selectedId) && (
+        <div key={el._id}>
+          <AccouplementCard el={el} added={el.added} />
+        </div>
+      ))}  
+    </div></div>
     )
 
 }
